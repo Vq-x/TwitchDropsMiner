@@ -41,6 +41,13 @@ Source project: `DevilXD/TwitchDropsMiner` Python/Tkinter app.
 - `gui.py` -> Tauri frontend components and command/event bridge.
 - `registry.py` -> platform autostart abstraction, likely via Tauri plugin or platform-specific Rust.
 
+## Platform support policy
+
+- Windows is a first-class release target, not an afterthought.
+- Use WSL-native Cargo for day-to-day Linux/WSL validation because the working tree lives in WSL.
+- Also validate Windows builds with Windows Cargo/Tauri before release, especially tray, notifications, autostart, WebView2, packaging, cookie/settings paths, and updater/release artifacts.
+- Keep platform-specific behavior behind small Rust abstractions or Tauri plugins so Linux/macOS/Windows differences do not leak into miner logic.
+
 ## Suggested Rust/Tauri architecture
 
 - Backend: Tauri v2 + Tokio async runtime.

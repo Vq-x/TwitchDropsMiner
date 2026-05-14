@@ -453,6 +453,16 @@ Separate internal mutable engine state from UI snapshots so frontend rendering n
 - Autostart set/unset per platform.
 - Tray start/minimize/restore/quit.
 
+## Platform Support Requirements
+
+Windows must remain a first-class target throughout the rewrite:
+
+- Validate Windows builds with Windows Cargo/Tauri before release, even when WSL Cargo is the default day-to-day validator.
+- Preserve Windows-specific behavior from the Python app: current-user autostart, shutdown/close handling equivalents, tray minimize/restore/quit, native notifications, portable storage expectations, and safe cookie/settings paths.
+- Confirm WebView2 runtime expectations and installer/bundle behavior.
+- Keep CI/release planning for Windows, Linux, and macOS; do not merge platform-specific miner logic into the core Twitch engine.
+- Add manual parity checks for Windows packaging, first launch, login/session persistence, autostart toggle, tray behavior, and app relocation.
+
 ## Recommended Implementation Order
 
 1. Stabilize project scaffolding: Tauri commands/events, Rust module layout, tracing, app-data
