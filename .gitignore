@@ -25,3 +25,8 @@ settings.json
 /*.AppImage.zsync
 .DS_Store
 *.app
+# Rust/Tauri rewrite
+/tauri-app/node_modules
+/tauri-app/dist
+/tauri-app/src-tauri/target
+/tauri-app/.vite
